@@ -50,4 +50,36 @@ public class ArrayImplPractice {
         }
     }
 
+    public Integer search_by_index(int searchIndex){
+        if(searchIndex < 0 || searchIndex > intArrayEndIndex) return null;
+        return intArray[searchIndex];
+    }
+
+    public void remove_by_index(int delIndex){
+        if(delIndex < 0 || delIndex > intArrayEndIndex) return;
+        intArray[delIndex] = null;
+        for(int i = delIndex; i<=intArrayEndIndex ; i++){
+            intArray[i] = intArray[i+1];
+            intArray[i+1] = null;
+        }
+        intArrayEndIndex--;
+    }
+
+    public void remove_by_value(int value){
+        for(int i=0; i<=intArrayEndIndex; i++){
+            if(intArray[i] == value){
+                    remove_by_index(i);
+                    return;
+                }
+            }
+        }
+
+    public Integer search_by_value(int value){
+        for(int i=0; i<=intArrayEndIndex; i++){
+            if(intArray[i] == value){
+                return i;
+            }
+        }
+        return null;
+    }
 }
